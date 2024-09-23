@@ -1,10 +1,10 @@
 import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
+import Template from "../Components/Template.jsx";
 
 function JobList() {
   return (
-    <div>
-      <Header page="JobList" />
+    <Template page={"JobList"}>
       <section className="job-bg page job-list-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -93,7 +93,8 @@ function JobList() {
                         <div className="panel-body">
                           <h5>
                             <a href="#">
-                              <i className="fa fa-caret-down"></i> All Categories
+                              <i className="fa fa-caret-down"></i> All
+                              Categories
                             </a>
                           </h5>
                           <a href="#">
@@ -612,13 +613,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -660,13 +667,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -708,13 +721,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -756,13 +775,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -804,13 +829,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -852,13 +883,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -900,13 +937,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -957,13 +1000,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1005,13 +1054,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1053,13 +1108,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1101,13 +1162,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1149,13 +1216,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1197,13 +1270,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1245,13 +1324,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1293,13 +1378,19 @@ function JobList() {
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-clock-o" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-clock-o"
+                                  aria-hidden="true"
+                                ></i>
                                 Full Time
                               </a>
                             </li>
                             <li>
                               <a href="#">
-                                <i className="fa fa-money" aria-hidden="true"></i>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
                                 $25,000 - $35,000
                               </a>
                             </li>
@@ -1380,9 +1471,7 @@ function JobList() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

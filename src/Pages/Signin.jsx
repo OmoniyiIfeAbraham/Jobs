@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Template from "../Components/Template";
 
 function Signin() {
   return (
-    <div>
-      <Header page={"signin"} />
+    <Template page={"signin"}>
       <section className="clearfix job-bg user-page">
         <div className="container text-center">
           <div className="user-account-content">
@@ -50,8 +50,7 @@ function Signin() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

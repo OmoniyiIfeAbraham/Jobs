@@ -1,10 +1,10 @@
 import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
+import Template from "../Components/Template.jsx";
 
 function JobDetails() {
   return (
-    <div>
-      <Header page="Details" />
+    <Template page={"Details"}>
       <section className="job-bg page job-details-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -392,10 +392,8 @@ function JobDetails() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
-  )
+    </Template>
+  );
 }
 
 export default JobDetails;

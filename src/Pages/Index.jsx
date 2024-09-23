@@ -1,69 +1,13 @@
 import React from "react";
 import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
+import Banner from "./../Components/Banner.jsx";
+import Template from "../Components/Template.jsx";
 
 const Index = () => {
   return (
-    <div>
-      <Header page="Home" />
-      <div className="banner-job">
-        <div className="banner-overlay"></div>
-        <div className="container text-center">
-          <h1 className="title">The Easiest Way to Get Your New Job</h1>
-          <h3>We offer 12000 jobs vacation right now</h3>
-          <div className="banner-form">
-            <form action="#" className="clearfix">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Type your key word"
-              />
-              <div className="dropdown category-dropdown">
-                <a data-toggle="dropdown" href="#">
-                  <span className="change-text">Job Location</span>{" "}
-                  <i className="fa fa-angle-down"></i>
-                </a>
-                <ul className="dropdown-menu category-change">
-                  <li>
-                    <a href="#">Location 1</a>
-                  </li>
-                  <li>
-                    <a href="#">Location 2</a>
-                  </li>
-                  <li>
-                    <a href="#">Location 3</a>
-                  </li>
-                </ul>
-              </div>
-              <button type="submit" className="btn btn-primary" value="Search">
-                Search
-              </button>
-            </form>
-          </div>
-          <ul className="banner-socail list-inline">
-            <li>
-              <a href="#" title="Facebook">
-                <i className="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Twitter">
-                <i className="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Google Plus">
-                <i className="fa fa-google-plus"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Youtube">
-                <i className="fa fa-youtube"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <Template page={"Home"}>
+      <Banner />
       <div className="page">
         <div className="container">
           <div className="section category-items job-category-items  text-center">
@@ -283,7 +227,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -342,7 +289,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -401,7 +351,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -460,7 +413,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -487,7 +443,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div role="tabpanel" className="tab-pane fade in" id="recent-jobs">
+              <div
+                role="tabpanel"
+                className="tab-pane fade in"
+                id="recent-jobs"
+              >
                 <div className="job-ad-item">
                   <div className="item-info">
                     <div className="item-image-box">
@@ -521,7 +481,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -580,7 +543,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -639,7 +605,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -698,7 +667,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -763,7 +735,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -822,7 +797,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -881,7 +859,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -940,7 +921,10 @@ const Index = () => {
                           </li>
                           <li>
                             <a href="#">
-                              <i className="fa fa-clock-o" aria-hidden="true"></i>
+                              <i
+                                className="fa fa-clock-o"
+                                aria-hidden="true"
+                              ></i>
                               Full Time
                             </a>
                           </li>
@@ -984,7 +968,11 @@ const Index = () => {
             <div className="row">
               <div className="col-md-6">
                 <div className="workshop">
-                  <img src="images/job/5.png" alt="Image" className="img-fluid" />
+                  <img
+                    src="images/job/5.png"
+                    alt="Image"
+                    className="img-fluid"
+                  />
                   <h3>
                     <a href="#">Business Process Management Training</a>
                   </h3>
@@ -1009,7 +997,11 @@ const Index = () => {
               </div>
               <div className="col-md-6">
                 <div className="workshop">
-                  <img src="images/job/6.png" alt="Image" className="img-fluid" />
+                  <img
+                    src="images/job/6.png"
+                    alt="Image"
+                    className="img-fluid"
+                  />
                   <h3>
                     <a href="#">Employee Motivation and Engagement</a>
                   </h3>
@@ -1100,7 +1092,11 @@ const Index = () => {
           <div className="row">
             <div className="col-md-4">
               <a href="#" className="download-app">
-                <img src="images/icon/16.png" alt="Image" className="img-fluid" />
+                <img
+                  src="images/icon/16.png"
+                  alt="Image"
+                  className="img-fluid"
+                />
                 <span className="pull-left">
                   <span>available on</span>
                   <strong>Google Play</strong>
@@ -1110,7 +1106,11 @@ const Index = () => {
 
             <div className="col-md-4">
               <a href="#" className="download-app">
-                <img src="images/icon/17.png" alt="Image" className="img-fluid" />
+                <img
+                  src="images/icon/17.png"
+                  alt="Image"
+                  className="img-fluid"
+                />
                 <span className="pull-left">
                   <span>available on</span>
                   <strong>App Store</strong>
@@ -1120,7 +1120,11 @@ const Index = () => {
 
             <div className="col-md-4">
               <a href="#" className="download-app">
-                <img src="images/icon/18.png" alt="Image" className="img-fluid" />
+                <img
+                  src="images/icon/18.png"
+                  alt="Image"
+                  className="img-fluid"
+                />
                 <span className="pull-left">
                   <span>available on</span>
                   <strong>Windows Store</strong>
@@ -1130,8 +1134,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 };
 

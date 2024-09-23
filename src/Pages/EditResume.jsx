@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Template from "../Components/Template";
 
 function EditResume() {
   return (
-    <div>
-      <Header page={"editResume"} />
+    <Template page={"editResume"}>
       <section className=" job-bg ad-details-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -25,7 +25,9 @@ function EditResume() {
                     <div className="section express-yourself">
                       <h4>Express Yourself</h4>
                       <div className="row form-group">
-                        <label className="col-md-4 label-title">Full Name</label>
+                        <label className="col-md-4 label-title">
+                          Full Name
+                        </label>
                         <div className="col-md-8">
                           <input
                             type="text"
@@ -58,7 +60,10 @@ function EditResume() {
                             Type: JPG, PNG Size: 3.5 x 4.5 cm
                           </label>
                           <input type="file" id="upload-image-one" />
-                          <label className="upload-image" for="upload-image-two">
+                          <label
+                            className="upload-image"
+                            for="upload-image-two"
+                          >
                             Upload Photo
                           </label>
                           <input type="file" id="upload-image-two" />
@@ -79,7 +84,9 @@ function EditResume() {
                     <div className="section">
                       <h4>Work History</h4>
                       <div className="row form-group">
-                        <label className="col-md-3 label-title">Compnay Name</label>
+                        <label className="col-md-3 label-title">
+                          Compnay Name
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -90,7 +97,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group">
-                        <label className="col-md-3 label-title">Designation</label>
+                        <label className="col-md-3 label-title">
+                          Designation
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -101,7 +110,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group time-period">
-                        <label className="col-md-3 label-title">Time Period</label>
+                        <label className="col-md-3 label-title">
+                          Time Period
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -166,7 +177,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group time-period">
-                        <label className="col-md-3 label-title">Time Period</label>
+                        <label className="col-md-3 label-title">
+                          Time Period
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -184,7 +197,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group job-description">
-                        <label className="col-md-3 label-title">Description</label>
+                        <label className="col-md-3 label-title">
+                          Description
+                        </label>
                         <div className="col-md-9">
                           <textarea
                             className="form-control"
@@ -268,7 +283,9 @@ function EditResume() {
                     <div className="section company-information">
                       <h4>Personal Deatils</h4>
                       <div className="row form-group">
-                        <label className="col-md-3 label-title">Full Name</label>
+                        <label className="col-md-3 label-title">
+                          Full Name
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -318,7 +335,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group">
-                        <label className="col-md-3 label-title">Birth Place</label>
+                        <label className="col-md-3 label-title">
+                          Birth Place
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -329,7 +348,9 @@ function EditResume() {
                         </div>
                       </div>
                       <div className="row form-group">
-                        <label className="col-md-3 label-title">Nationality</label>
+                        <label className="col-md-3 label-title">
+                          Nationality
+                        </label>
                         <div className="col-md-9">
                           <input
                             type="text"
@@ -428,8 +449,7 @@ function EditResume() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

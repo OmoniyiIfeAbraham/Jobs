@@ -2,11 +2,11 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import UserInfoCard from "../Components/UserInfoCard";
+import Template from "../Components/Template";
 
 function DeleteAccount() {
   return (
-    <div>
-      <Header page={"deleteAccount"} />
+    <Template page={"deleteAccount"}>
       <section className="clearfix job-bg delete-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -33,8 +33,7 @@ function DeleteAccount() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

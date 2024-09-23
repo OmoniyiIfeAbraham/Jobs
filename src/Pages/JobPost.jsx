@@ -1,10 +1,8 @@
-import Header from "./../Components/Header.jsx";
-import Footer from "./../Components/Footer.jsx";
+import Template from "./../Components/Template.jsx";
 
 function JobPost() {
   return (
-    <div>
-      <Header page="post" />
+    <Template page={"post"}>
       <section className=" job-bg ad-details-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -27,7 +25,9 @@ function JobPost() {
                         <span className="pull-right">* Mandatory Fields</span>
                       </h4>
                       <div className="row form-group add-title">
-                        <label className="col-sm-3 label-title">Job Category</label>
+                        <label className="col-sm-3 label-title">
+                          Job Category
+                        </label>
                         <div className="col-sm-9">
                           <div className="dropdown category-dropdown">
                             <a
@@ -35,7 +35,9 @@ function JobPost() {
                               href="#"
                               aria-expanded="false"
                             >
-                              <span className="change-text">Select a category</span>{" "}
+                              <span className="change-text">
+                                Select a category
+                              </span>{" "}
                               <i className="fa fa-angle-down pull-right"></i>
                             </a>
                             <ul className="dropdown-menu category-change">
@@ -450,9 +452,7 @@ function JobPost() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

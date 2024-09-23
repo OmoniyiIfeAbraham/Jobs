@@ -2,11 +2,11 @@ import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import UserInfoCard from "../Components/UserInfoCard";
+import Template from "../Components/Template";
 
 function ProfileDetails() {
   return (
-    <div>
-      <Header page={"profileDetails"} />
+    <Template page={"profileDetails"}>
       <section className="clearfix job-bg  ad-profile-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -119,8 +119,7 @@ function ProfileDetails() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

@@ -1,11 +1,11 @@
 import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
 import UserInfoCard from "../Components/UserInfoCard.jsx";
+import Template from "../Components/Template.jsx";
 
 function Profile() {
   return (
-    <div>
-      <Header page="profile" />
+    <Template page={"profile"}>
       <section className=" job-bg page  ad-profile-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -411,9 +411,7 @@ function Profile() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </Template>
   );
 }
 

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import Template from "../Components/Template";
 
 function Signup() {
   return (
-    <div>
-      <Header page={"signup"} />
+    <Template page={"signup"}>
       <section className="job-bg user-page">
         <div className="container  text-center">
           <div className="user-account-content">
@@ -23,16 +23,6 @@ function Signup() {
                     Find A Job
                   </a>
                 </li>
-                <li role="presentation">
-                  <a
-                    href="#post-job"
-                    aria-controls="post-job"
-                    role="tab"
-                    data-toggle="tab"
-                  >
-                    Post A Job
-                  </a>
-                </li>
               </ul>
               <div className="tab-content">
                 <div
@@ -45,7 +35,16 @@ function Signup() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Name"
+                        placeholder="FirstName"
+                        name="FirstName"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="LastName"
+                        name="LastName"
                       />
                     </div>
                     <div className="form-group">
@@ -53,6 +52,7 @@ function Signup() {
                         type="email"
                         className="form-control"
                         placeholder="Email Id"
+                        name="Email"
                       />
                     </div>
                     <div className="form-group">
@@ -60,6 +60,7 @@ function Signup() {
                         type="password"
                         className="form-control"
                         placeholder="Password"
+                        name="Password"
                       />
                     </div>
                     <div className="form-group">
@@ -67,6 +68,7 @@ function Signup() {
                         type="password"
                         className="form-control"
                         placeholder="Confirm Password"
+                        name="ConfirmPassword"
                       />
                     </div>
                     <div className="form-group">
@@ -91,60 +93,7 @@ function Signup() {
                         Conditions{" "}
                       </label>
                     </div>
-                    <button type="submit" className="btn">
-                      Registration
-                    </button>
-                  </form>
-                </div>
-                <div role="tabpanel" className="tab-pane" id="post-job">
-                  <form action="#">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Employer Name"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Email Id"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Confirm Password"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Contact Number"
-                      />
-                    </div>
-                    <div className="checkbox">
-                      <label className="pull-left checked" for="signing-2">
-                        <input
-                          type="checkbox"
-                          name="signing-2"
-                          id="signing-2"
-                        />
-                        By signing up for an account you agree to our Terms and
-                        Conditions
-                      </label>
-                    </div>
-                    <button type="submit" className="btn">
+                    <button type="button" className="btn">
                       Registration
                     </button>
                   </form>
@@ -154,8 +103,7 @@ function Signup() {
           </div>
         </div>
       </section>
-      <Footer />
-    </div>
+    </Template>
   );
 }
 
