@@ -3,6 +3,7 @@ import Template from "../Components/Template";
 import axios from "axios";
 import { config } from "../Components/GeneralFunction";
 import Swal from "sweetalert2";
+import Notify from "../Components/Notify";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -66,10 +67,15 @@ function Signup() {
   };
 
   const Alert = () => {
-    Swal.fire({
-      title: "The Internet?",
-      text: "That thing is still around?",
-      icon: "question",
+    // Swal.fire({
+    //   title: "The Internet?",
+    //   text: "That thing is still around?",
+    //   icon: "question",
+    // });
+    Notify({
+      title: "Goodjob",
+      message: "Data saved successfully",
+      type: "success",
     });
   };
   return (

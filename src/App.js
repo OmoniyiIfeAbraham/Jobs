@@ -20,10 +20,13 @@ import AppliedJob from "./Pages/AppliedJob";
 import DeleteAccount from "./Pages/DeleteAccount";
 import Signup from "./Pages/Signup";
 import Signin from "./Pages/Signin";
+import { ReactNotifications } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 function App() {
   return (
     <div>
+      <ReactNotifications />
       <Router>
         <Routes>
           <Route path="/" element={<Index />} />
