@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Template from "../Components/Template";
 import { config } from "../Components/GeneralFunction";
 import axios from "axios";
 import Notify from "../Components/Notify";
 import cookies from "js-cookies";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Signin() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email_address: "",
     password: "",
@@ -20,6 +21,15 @@ function Signin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    Swal.fire({
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+      imageHeight: 100,
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
+
     const fd = new FormData();
     fd.append("email_address", user.email_address);
     fd.append("password", user.password);
@@ -33,6 +43,9 @@ function Signin() {
           type: "success",
         });
         cookies.setItem("token", response.data.token);
+        cookies.setItem("code", response.data.code);
+        // navigate("/profile");
+        window.location.href="/profile";
       } else {
         Notify({
           title: "Error",

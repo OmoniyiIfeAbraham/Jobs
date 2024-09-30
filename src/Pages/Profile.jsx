@@ -2,8 +2,17 @@ import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
 import UserInfoCard from "../Components/UserInfoCard.jsx";
 import Template from "../Components/Template.jsx";
+import cookies from "js-cookies";
+import { useEffect } from "react";
 
 function Profile() {
+  const Token = cookies.getItem("token");
+
+  useEffect(() => {
+    if (Token === undefined || Token === null || Token === "") {
+      window.location.href = "/signin";
+    }
+  }, []);
   return (
     <Template page={"profile"}>
       <section className=" job-bg page  ad-profile-page">
