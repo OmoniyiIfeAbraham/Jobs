@@ -1,8 +1,25 @@
-import Header from "./../Components/Header.jsx";
-import Footer from "./../Components/Footer.jsx";
+import { useParams } from "react-router-dom";
 import Template from "../Components/Template.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { config } from "../Components/GeneralFunction.jsx";
 
 function JobDetails() {
+  let param = useParams();
+
+  const [content, setContent] = useState([]);
+
+  const FetchData = () => {
+    let url = `http://get_data_url/${param.id}`;
+
+    axios.get(url, config).then((response) => {
+      setContent(response.data.data);
+    });
+  };
+
+  useEffect(() => {
+    // FetchData();
+  }, []);
   return (
     <Template page={"Details"}>
       <section className="job-bg page job-details-page">
@@ -78,7 +95,7 @@ function JobDetails() {
                 <div className="item-image-box">
                   <div className="item-image">
                     <img
-                      src="images/job/4.png"
+                      src="/images/job/4.png"
                       alt="Image"
                       className="img-fluid"
                     />

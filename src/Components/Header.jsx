@@ -20,7 +20,7 @@ function Header({ page }) {
               </span>
             </button>
             <a className="navbar-brand" href="/">
-              <img className="img-fluid" src="images/logo.png" alt="Logo" />
+              <img className="img-fluid" src="/images/logo.png" alt="Logo" />
             </a>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="nav navbar-nav">
@@ -31,7 +31,7 @@ function Header({ page }) {
                   <a href="/job-list">Job list</a>
                 </li>
                 <li className={page == "Details" ? "active" : null}>
-                  <a href="/job-details">Job Details</a>
+                  <a href="/job-Details">Job Details</a>
                 </li>
                 <li className={page == "Resume" ? "active" : null}>
                   <a href="/resume">Resume</a>

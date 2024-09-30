@@ -1,9 +1,77 @@
 import React, { useState } from "react";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Template from "../Components/Template";
+import axios from "axios";
+import { config } from "../Components/GeneralFunction";
+import Swal from "sweetalert2";
 
 function Signup() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    city: "",
+    telephone: "",
+  });
+
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    city: "",
+    telephone: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let is_valid = true;
+    let err = error;
+    if (user.password.length < 8) {
+      is_valid = false;
+      err.password = "Please enter a minimum of 8 characters";
+    }
+
+    if (user.password !== user.confirm_password) {
+      is_valid = false;
+      err.password = "Password does not match";
+      err.confirm_password = "Password does not match";
+    }
+
+    setError(err);
+
+    if (is_valid) {
+      const fd = new FormData();
+      fd.append("name", user.name);
+      fd.append("email", user.email);
+      fd.append("password", user.password);
+      fd.append("confirm_password", user.confirm_password);
+      fd.append("telephone", user.telephone);
+      fd.append("city", user.city);
+
+      let url = "http://submit/url";
+      axios.post(url, fd, config).then((response) => {
+        if (response.data.status == 200) {
+          console.log("Data Saved Successfully");
+        } else {
+          console.log("Unable to save data");
+        }
+      });
+    }
+  };
+
+  const Alert = () => {
+    Swal.fire({
+      title: "The Internet?",
+      text: "That thing is still around?",
+      icon: "question",
+    });
+  };
   return (
     <Template page={"signup"}>
       <section className="job-bg user-page">
@@ -30,21 +98,16 @@ function Signup() {
                   className="tab-pane active show"
                   id="find-job"
                 >
-                  <form action="#">
+                  <form action="#" onSubmit={handleSubmit}>
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
                         placeholder="FirstName"
-                        name="FirstName"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="LastName"
-                        name="LastName"
+                        name="name"
+                        value={user.name}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -52,7 +115,10 @@ function Signup() {
                         type="email"
                         className="form-control"
                         placeholder="Email Id"
-                        name="Email"
+                        name="email"
+                        value={user.email}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -60,26 +126,44 @@ function Signup() {
                         type="password"
                         className="form-control"
                         placeholder="Password"
-                        name="Password"
+                        name="password"
+                        value={user.password}
+                        onChange={handleChange}
+                        required
                       />
+                      <span>{error?.password}</span>
                     </div>
                     <div className="form-group">
                       <input
                         type="password"
                         className="form-control"
                         placeholder="Confirm Password"
-                        name="ConfirmPassword"
+                        name="confirm_password"
+                        value={user.confirm_password}
+                        onChange={handleChange}
+                        required
                       />
+                      <span>{error?.confirm_password}</span>
                     </div>
                     <div className="form-group">
                       <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         placeholder="Mobile Number"
+                        name="telephone"
+                        value={user.telephone}
+                        onChange={handleChange}
+                        required
                       />
                     </div>
 
-                    <select className="form-control">
+                    <select
+                      className="form-control"
+                      name="city"
+                      value={user.city}
+                      onChange={handleChange}
+                      required
+                    >
                       <option value="#">Select City</option>
                       <option value="#">London UK</option>
                       <option value="#">Newyork, USA</option>
@@ -93,7 +177,10 @@ function Signup() {
                         Conditions{" "}
                       </label>
                     </div>
-                    <button type="button" className="btn">
+                    <button className="btn" onClick={() => Alert()}>
+                      Test Alert
+                    </button>
+                    <button type="submit" className="btn">
                       Registration
                     </button>
                   </form>

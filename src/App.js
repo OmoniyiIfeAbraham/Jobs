@@ -29,6 +29,7 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/job-list" element={<JobList />} />
           <Route path="/job-details" element={<JobDetails />} />
+          <Route path="/job-details/:id" element={<JobDetails />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/post-resume" element={<PostResume />} />
