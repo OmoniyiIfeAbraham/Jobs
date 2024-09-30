@@ -4,6 +4,8 @@ import axios from "axios";
 import { config } from "../Components/GeneralFunction";
 import Swal from "sweetalert2";
 import Notify from "../Components/Notify";
+import Select from "react-select";
+import cookies from "js-cookies";
 
 function Signup() {
   const [user, setUser] = useState({
@@ -23,6 +25,7 @@ function Signup() {
     city: "",
     telephone: "",
   });
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -48,23 +51,37 @@ function Signup() {
 
     if (is_valid) {
       const fd = new FormData();
-      fd.append("name", user.name);
-      fd.append("email", user.email);
+      fd.append("fullname", user.name);
+      fd.append("email_address", user.email);
       fd.append("password", user.password);
       fd.append("confirm_password", user.confirm_password);
       fd.append("telephone", user.telephone);
       fd.append("city", user.city);
 
-      let url = "http://submit/url";
+      let url = "http://solidrockschool.com.ng/api/people/application/create";
       axios.post(url, fd, config).then((response) => {
         if (response.data.status == 200) {
-          console.log("Data Saved Successfully");
+          Notify({
+            title: "Saved",
+            message: `${response.data.message}`,
+            type: "success",
+          });
         } else {
-          console.log("Unable to save data");
+          Notify({
+            title: "Error",
+            message: `${response.data.message}`,
+            type: "danger",
+          });
         }
       });
     }
   };
+
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
 
   const Alert = () => {
     // Swal.fire({
@@ -72,10 +89,16 @@ function Signup() {
     //   text: "That thing is still around?",
     //   icon: "question",
     // });
+    // Notify({
+    //   title: "Goodjob",
+    //   message: "Data saved successfully",
+    //   type: "success",
+    // });
+    cookies.setItem("username", "badejohnar");
     Notify({
       title: "Goodjob",
-      message: "Data saved successfully",
-      type: "success",
+      message: "Cookies stored",
+      type: "default",
     });
   };
   return (
@@ -176,6 +199,12 @@ function Signup() {
                       <option value="#">Seoul, Korea</option>
                       <option value="#">Beijing, China</option>
                     </select>
+
+                    {/* <Select
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      options={options}
+                    /> */}
                     <div className="checkbox">
                       <label className="pull-left checked" for="signing">
                         <input type="checkbox" name="signing" id="signing" /> By
@@ -183,9 +212,9 @@ function Signup() {
                         Conditions{" "}
                       </label>
                     </div>
-                    <button className="btn" onClick={() => Alert()}>
+                    {/* <button className="btn" onClick={() => Alert()}>
                       Test Alert
-                    </button>
+                    </button> */}
                     <button type="submit" className="btn">
                       Registration
                     </button>
