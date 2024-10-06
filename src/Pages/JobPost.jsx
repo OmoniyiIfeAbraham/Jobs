@@ -120,6 +120,30 @@ function JobPost() {
                           ></textarea>
                         </div>
                       </div>
+                      <div className="row form-group">
+                        <label className="col-sm-3 label-title">
+                          Fees<span className="required">*</span>
+                        </label>
+                        <div className="col-sm-9">
+                          <input
+                            type="number"
+                            className="form-control"
+                            placeholder="100"
+                          />
+                        </div>
+                      </div>
+                      <div className="row form-group">
+                        <label className="col-sm-3 label-title">
+                          Staff<span className="required">*</span>
+                        </label>
+                        <div className="col-sm-9">
+                          <input
+                            type="number"
+                            className="form-control"
+                            placeholder="200"
+                          />
+                        </div>
+                      </div>
                       <div className="row characters">
                         <div className="col-sm-9 col-sm-offset-3">
                           <p>5000 characters left</p>
@@ -206,7 +230,19 @@ function JobPost() {
                           <label for="negotiable">Negotiable </label>
                         </div>
                       </div>
-                      <div className="row form-group add-title">
+                      <div className="row form-group">
+                        <label className="col-sm-3 label-title">
+                          Closing Date<span className="required">*</span>
+                        </label>
+                        <div className="col-sm-9">
+                          <input
+                            type="date"
+                            className="form-control"
+                            placeholder="ex, Human Resource Manager"
+                          />
+                        </div>
+                      </div>
+                      {/* <div className="row form-group add-title">
                         <label className="col-sm-3 label-title">
                           Salary Type<span className="required">*</span>
                         </label>
@@ -236,7 +272,7 @@ function JobPost() {
                             </ul>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="row form-group add-title">
                         <label className="col-sm-3 label-title">
                           Exprience<span className="required">*</span>
@@ -268,7 +304,7 @@ function JobPost() {
                           </div>
                         </div>
                       </div>
-                      <div className="row form-group brand-name">
+                      {/* <div className="row form-group brand-name">
                         <label className="col-sm-3 label-title">
                           Job Function<span className="required">*</span>
                         </label>
@@ -279,11 +315,11 @@ function JobPost() {
                             placeholder="human, reosurce, job, hrm"
                           />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="section company-information">
                       <h4>Company Information</h4>
-                      <div className="row form-group">
+                      {/* <div className="row form-group">
                         <label className="col-sm-3 label-title">
                           Industry<span className="required">*</span>
                         </label>
@@ -295,7 +331,7 @@ function JobPost() {
                             placeholder="Marketing and Advertising"
                           />
                         </div>
-                      </div>
+                      </div> */}
                       <div className="row form-group">
                         <label className="col-sm-3 label-title">
                           Company Name<span className="required">*</span>
@@ -309,7 +345,7 @@ function JobPost() {
                           />
                         </div>
                       </div>
-                      <div className="row form-group">
+                      {/* <div className="row form-group">
                         <label className="col-sm-3 label-title">Email ID</label>
                         <div className="col-sm-9">
                           <input
@@ -319,8 +355,8 @@ function JobPost() {
                             placeholder="ex, jhondoe@mail.com"
                           />
                         </div>
-                      </div>
-                      <div className="row form-group">
+                      </div> */}
+                      {/* <div className="row form-group">
                         <label className="col-sm-3 label-title">
                           Mobile Number<span className="required">*</span>
                         </label>
@@ -332,8 +368,8 @@ function JobPost() {
                             placeholder="ex, +912457895"
                           />
                         </div>
-                      </div>
-                      <div className="row form-group address">
+                      </div> */}
+                      {/* <div className="row form-group address">
                         <label className="col-sm-3 label-title">
                           Address<span className="required">*</span>
                         </label>
@@ -345,9 +381,9 @@ function JobPost() {
                             placeholder="ex, alekdera House, coprotec, usa"
                           />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="section">
+                    {/* <div className="section">
                       <h4>Make Your Post Premium</h4>
                       <p>
                         More replies means more interested buyers. With lots of
@@ -396,7 +432,7 @@ function JobPost() {
                           <span>$100.00</span>
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                     <div className="checkbox section agreement">
                       <label for="send">
                         <input type="checkbox" name="send" id="send" />
