@@ -1,6 +1,30 @@
+import React, { useState } from "react";
 import Template from "./../Components/Template.jsx";
 
 function JobPost() {
+  const [jobDetails, setJobDetails] = useState({
+    slug: "",
+    category_code: "",
+    company_code: "",
+    job_type: "",
+    experience: "",
+    description: "",
+    fees: "",
+    staff: "",
+    location: "",
+    min_salary: "",
+    max_salary: "",
+    closing_date: "",
+    title: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setJobDetails({ ...jobDetails, [name]: value });
+  };
+
+  console.log(jobDetails);
+
   return (
     <Template page={"post"}>
       <section className=" job-bg ad-details-page">
@@ -29,35 +53,29 @@ function JobPost() {
                           Job Category
                         </label>
                         <div className="col-sm-9">
-                          <div className="dropdown category-dropdown">
-                            <a
-                              data-toggle="dropdown"
-                              href="#"
-                              aria-expanded="false"
-                            >
-                              <span className="change-text">
-                                Select a category
-                              </span>{" "}
-                              <i className="fa fa-angle-down pull-right"></i>
-                            </a>
-                            <ul className="dropdown-menu category-change">
-                              <li>
-                                <a href="#">Select a category</a>
-                              </li>
-                              <li>
-                                <a href="#">Software Engineer</a>
-                              </li>
-                              <li>
-                                <a href="#">Program Development</a>
-                              </li>
-                              <li>
-                                <a href="#">Project Manager</a>
-                              </li>
-                              <li>
-                                <a href="#">Graphics Designer</a>
-                              </li>
-                            </ul>
-                          </div>
+                          <select
+                            className="form-control"
+                            name="category_code"
+                            value={jobDetails.category_code}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option selected disabled>
+                              Select a category
+                            </option>
+                            <option value="Software Engineer">
+                              Software Engineer
+                            </option>
+                            <option value="Program Development">
+                              Program Development
+                            </option>
+                            <option value="Project Manager">
+                              Project Manager
+                            </option>
+                            <option value="Graphics Designer">
+                              Graphics Designer
+                            </option>
+                          </select>
                         </div>
                       </div>
                       <div className="row form-group">
@@ -67,29 +85,33 @@ function JobPost() {
                         <div className="col-sm-9 user-type">
                           <input
                             type="radio"
-                            name="sellType"
+                            name="job_type"
                             value="full-time"
+                            onClick={handleChange}
                             id="full-time"
                           />{" "}
                           <label for="full-time">Full Time</label>
                           <input
                             type="radio"
-                            name="sellType"
+                            name="job_type"
                             value="part-time"
+                            onClick={handleChange}
                             id="part-time"
                           />{" "}
                           <label for="part-time">Part Time</label>
                           <input
                             type="radio"
-                            name="sellType"
+                            name="job_type"
                             value="freelance"
+                            onClick={handleChange}
                             id="freelance"
                           />{" "}
                           <label for="freelance">Freelance</label>
                           <input
                             type="radio"
-                            name="sellType"
+                            name="job_type"
                             value="contract"
+                            onClick={handleChange}
                             id="contract"
                           />{" "}
                           <label for="contract">Contract</label>
@@ -97,13 +119,16 @@ function JobPost() {
                       </div>
                       <div className="row form-group">
                         <label className="col-sm-3 label-title">
-                          Title for your jonb<span className="required">*</span>
+                          Title for your job<span className="required">*</span>
                         </label>
                         <div className="col-sm-9">
                           <input
                             type="text"
                             className="form-control"
                             placeholder="ex, Human Resource Manager"
+                            value={jobDetails.title}
+                            name="title"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -117,10 +142,18 @@ function JobPost() {
                             id="textarea"
                             placeholder="Write few lines about your jobs"
                             rows="8"
+                            value={jobDetails.description}
+                            name="description"
+                            onChange={handleChange}
                           ></textarea>
                         </div>
                       </div>
-                      <div className="row form-group">
+                      {/* <div className="row characters">
+                        <div className="col-sm-9 col-sm-offset-3">
+                          <p>5000 characters left</p>
+                        </div>
+                      </div> */}
+                      {/* <div className="row form-group">
                         <label className="col-sm-3 label-title">
                           Fees<span className="required">*</span>
                         </label>
@@ -129,9 +162,12 @@ function JobPost() {
                             type="number"
                             className="form-control"
                             placeholder="100"
+                            value={jobDetails.fees}
+                            name="fees"
+                            onChange={handleChange}
                           />
                         </div>
-                      </div>
+                      </div> */}
                       <div className="row form-group">
                         <label className="col-sm-3 label-title">
                           Staff<span className="required">*</span>
@@ -141,12 +177,10 @@ function JobPost() {
                             type="number"
                             className="form-control"
                             placeholder="200"
+                            value={jobDetails.staff}
+                            name="staff"
+                            onChange={handleChange}
                           />
-                        </div>
-                      </div>
-                      <div className="row characters">
-                        <div className="col-sm-9 col-sm-offset-3">
-                          <p>5000 characters left</p>
                         </div>
                       </div>
                       <div className="row form-group add-title location">
@@ -154,54 +188,35 @@ function JobPost() {
                           Location<span className="required">*</span>
                         </label>
                         <div className="col-sm-9">
-                          <div className="dropdown category-dropdown pull-left">
-                            <a
-                              data-toggle="dropdown"
-                              href="#"
-                              aria-expanded="false"
-                            >
-                              <span className="change-text">Country</span>{" "}
-                              <i className="fa fa-angle-down pull-right"></i>
-                            </a>
-                            <ul className="dropdown-menu category-change">
-                              <li>
-                                <a href="#">Argentina</a>
-                              </li>
-                              <li>
-                                <a href="#">Australia</a>
-                              </li>
-                              <li>
-                                <a href="#">Belgium</a>
-                              </li>
-                              <li>
-                                <a href="#">Brazil</a>
-                              </li>
-                              <li>
-                                <a href="#">Cambodia</a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div className="dropdown category-dropdown pull-right">
-                            <a
-                              data-toggle="dropdown"
-                              href="#"
-                              aria-expanded="false"
-                            >
-                              <span className="change-text">State</span>{" "}
-                              <i className="fa fa-angle-down pull-right"></i>
-                            </a>
-                            <ul className="dropdown-menu category-change">
-                              <li>
-                                <a href="#">State 1</a>
-                              </li>
-                              <li>
-                                <a href="#">State 2</a>
-                              </li>
-                              <li>
-                                <a href="#">State 3</a>
-                              </li>
-                            </ul>
-                          </div>
+                          <select
+                            className="form-control"
+                            name="location"
+                            value={jobDetails.location}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option selected disabled>
+                              Select Country, State
+                            </option>
+                            <option value="Argentina, State 1">
+                              Argentina, State 1
+                            </option>
+                            <option value="Australia, State 2">
+                              Australia, State 2
+                            </option>
+                            <option value="Belgium, State 3">
+                              Belgium, State 3
+                            </option>
+                            <option value="Brazil, State 4">
+                              Brazil, State 4
+                            </option>
+                            <option value="Cambodia, State 4">
+                              Cambodia, State 4
+                            </option>
+                            <option value="Nigeria, Lagos">
+                              Nigeria, Lagos
+                            </option>
+                          </select>
                         </div>
                       </div>
                       <div className="row form-group select-price">
@@ -211,21 +226,28 @@ function JobPost() {
                         <div className="col-sm-9">
                           <label>$USD</label>
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             placeholder="Min"
+                            value={jobDetails.min_salary}
+                            name="min_salary"
+                            onChange={handleChange}
                           />
                           <span>-</span>
                           <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             placeholder="Max"
+                            value={jobDetails.max_salary}
+                            name="max_salary"
+                            onChange={handleChange}
                           />
                           <input
                             type="radio"
-                            name="price"
+                            name="fees"
                             value="negotiable"
                             id="negotiable"
+                            onClick={handleChange}
                           />
                           <label for="negotiable">Negotiable </label>
                         </div>
@@ -239,6 +261,9 @@ function JobPost() {
                             type="date"
                             className="form-control"
                             placeholder="ex, Human Resource Manager"
+                            value={jobDetails.closing_date}
+                            name="closing_date"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -278,30 +303,20 @@ function JobPost() {
                           Exprience<span className="required">*</span>
                         </label>
                         <div className="col-sm-9">
-                          <div className="dropdown category-dropdown">
-                            <a
-                              data-toggle="dropdown"
-                              href="#"
-                              aria-expanded="false"
-                            >
-                              <span className="change-text">Mid Level</span>{" "}
-                              <i className="fa fa-angle-down pull-right"></i>
-                            </a>
-                            <ul className="dropdown-menu category-change">
-                              <li>
-                                <a href="#">Entry Level</a>
-                              </li>
-                              <li>
-                                <a href="#">Mid Level</a>
-                              </li>
-                              <li>
-                                <a href="#">Mid-Senior Level</a>
-                              </li>
-                              <li>
-                                <a href="#">Top Level</a>
-                              </li>
-                            </ul>
-                          </div>
+                          <select
+                            className="form-control"
+                            name="experience"
+                            value={jobDetails.experience}
+                            onChange={handleChange}
+                            required
+                          >
+                            <option value="Entry Level">Entry Level</option>
+                            <option value="Mid Level">Mid Level</option>
+                            <option value="Mid-Senior Level">
+                              Mid-Senior Level
+                            </option>
+                            <option value="Top Level">Top Level</option>
+                          </select>
                         </div>
                       </div>
                       {/* <div className="row form-group brand-name">
@@ -339,9 +354,11 @@ function JobPost() {
                         <div className="col-sm-9">
                           <input
                             type="text"
-                            name="name"
+                            name="company_code"
                             className="form-control"
                             placeholder="ex, Jhon Doe"
+                            value={jobDetails.company_code}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
