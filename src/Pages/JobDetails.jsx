@@ -3,11 +3,17 @@ import Template from "../Components/Template.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { config } from "../Components/GeneralFunction.jsx";
+import cookies from "js-cookies";
+import Notify from "../Components/Notify.jsx";
+import Swal from "sweetalert2";
 
 function JobDetails() {
   let param = useParams();
 
+  const People_Code = cookies.getItem("code");
+
   const [job, setJob] = useState();
+  const [loading, setLoading] = useState(false);
 
   const FetchData = () => {
     let url = `http://solidrockschool.com.ng/api/job/info/${param.slug}`;
@@ -22,6 +28,46 @@ function JobDetails() {
   }, []);
 
   console.log(job);
+
+  // if (loading) {
+  //   Swal.fire({
+  //     imageUrl:
+  //       "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+  //     imageHeight: 100,
+  //     showCloseButton: false,
+  //     showConfirmButton: false,
+  //   });
+  // }
+
+  const Bookmark = (event) => {
+    event.preventDefault();
+
+    setLoading(true);
+
+    const fd = new FormData();
+    fd.append("job_code", job.code);
+    fd.append("people_code", People_Code);
+
+    let url = "http://solidrockschool.com.ng/api/people/job/bookmark";
+    axios.post(url, fd, config).then((response) => {
+      if (response.data.status == 200) {
+        Notify({
+          title: "Saved",
+          message: `${response.data.message}`,
+          type: "success",
+        });
+        setLoading(false);
+        // window.location.href = `job-details/${param.slug}`;
+      } else {
+        Notify({
+          title: "Error",
+          message: `${response.data.message}`,
+          type: "danger",
+        });
+        setLoading(false);
+      }
+    });
+  };
   return (
     <Template page={"Details"}>
       <section className="job-bg page job-details-page">
@@ -150,15 +196,22 @@ function JobDetails() {
                 </div>
               </div>
               <div className="social-media">
-                <div className="button">
+                <div className="button" style={{display: 'flex', flexDirection: 'rowF'}}>
                   <a href="#" className="btn btn-primary">
                     <i className="fa fa-briefcase" aria-hidden="true"></i>Apply
                     For This Job
                   </a>
-                  <a href="#" className="btn btn-primary bookmark">
-                    <i className="fa fa-bookmark-o" aria-hidden="true"></i>
-                    Bookmark
-                  </a>
+                  {job && (
+                    <form action="" method="post" onSubmit={Bookmark}>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bookmark"
+                      >
+                        <i className="fa fa-bookmark-o" aria-hidden="true"></i>{" "}
+                        Bookmark
+                      </button>
+                    </form>
+                  )}
                 </div>
                 {/* <ul className="share-social">
                   <li>Share this ad</li>
@@ -334,12 +387,12 @@ function JobDetails() {
                             className="__cf_email__"
                             data-cfemail="0960676f66496d7b66796b6671276a6664"
                           >
-                              {job?.email}
+                            {job?.email}
                           </span>
                         </a>
                       </li>
                       <li>
-                        Website: <a href="#">  {job?.website}</a>
+                        Website: <a href="#"> {job?.website}</a>
                       </li>
                     </ul>
                     {/* <ul className="share-social">
