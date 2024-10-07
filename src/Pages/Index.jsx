@@ -172,11 +172,6 @@ const Index = () => {
             </ul>
           </div>
           <JobItem />
-          <div className="ad-section text-center">
-            <a href="#">
-              <img src="images/ads/3.jpg" alt="Image" className="img-fluid" />
-            </a>
-          </div>
           <div className="section workshop-traning">
             <div className="section-title">
               <h4>Workshop Traning</h4>

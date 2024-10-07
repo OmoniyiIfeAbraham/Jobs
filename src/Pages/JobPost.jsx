@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Template from "./../Components/Template.jsx";
+import axios from "axios";
+import { config } from "../Components/GeneralFunction.jsx";
+import Notify from "../Components/Notify.jsx";
+import Swal from "sweetalert2";
 
 function JobPost() {
   const [jobDetails, setJobDetails] = useState({
@@ -23,7 +27,50 @@ function JobPost() {
     setJobDetails({ ...jobDetails, [name]: value });
   };
 
-  console.log(jobDetails);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    Swal.fire({
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+      imageHeight: 100,
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
+
+    const fd = new FormData();
+    fd.append("slug", `${jobDetails.title - jobDetails.category_code}`);
+    fd.append("category_code", jobDetails.category_code);
+    fd.append("company_code", jobDetails.company_code);
+    fd.append("job_type", jobDetails.job_type);
+    fd.append("experience", jobDetails.experience);
+    fd.append("description", jobDetails.description);
+    fd.append("fees", jobDetails.fees);
+    fd.append("staff", jobDetails.staff);
+    fd.append("location", jobDetails.location);
+    fd.append("min_salary", jobDetails.min_salary);
+    fd.append("max_salary", jobDetails.max_salary);
+    fd.append("closing_date", jobDetails.closing_date);
+    fd.append("title", jobDetails.title);
+
+    let url = "http://solidrockschool.com.ng/api/job/add";
+    axios.post(url, fd, config).then((response) => {
+      if (response.data.status == 200) {
+        Notify({
+          title: "Saved",
+          message: response.data.message,
+          type: "success",
+        });
+        window.location.href = "/job-list";
+      } else {
+        Notify({
+          title: "Error",
+          message: response.data.message,
+          type: "danger",
+        });
+      }
+    });
+  };
 
   return (
     <Template page={"post"}>
@@ -41,7 +88,7 @@ function JobPost() {
           <div className="job-postdetails">
             <div className="row">
               <div className="col-lg-8">
-                <form action="#">
+                <form action="#" onSubmit={handleSubmit}>
                   <fieldset>
                     <div className="section postdetails">
                       <h4>
@@ -451,13 +498,13 @@ function JobPost() {
                       </ul>
                     </div> */}
                     <div className="checkbox section agreement">
-                      <label for="send">
+                      {/* <label for="send">
                         <input type="checkbox" name="send" id="send" />
                         You agree to our <a href="#">Terms of Use</a> and{" "}
                         <a href="#">Privacy Policy</a> and acknowledge that you
                         are the rightful owner of this item and using Jobs to
                         find a genuine buyer.
-                      </label>
+                      </label> */}
                       <button type="submit" className="btn btn-primary">
                         Post Your Job
                       </button>
