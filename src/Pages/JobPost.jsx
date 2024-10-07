@@ -176,6 +176,7 @@ function JobPost() {
                             value={jobDetails.title}
                             name="title"
                             onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
@@ -192,6 +193,7 @@ function JobPost() {
                             value={jobDetails.description}
                             name="description"
                             onChange={handleChange}
+                            required
                           ></textarea>
                         </div>
                       </div>
@@ -227,6 +229,7 @@ function JobPost() {
                             value={jobDetails.staff}
                             name="staff"
                             onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
@@ -279,6 +282,7 @@ function JobPost() {
                             value={jobDetails.min_salary}
                             name="min_salary"
                             onChange={handleChange}
+                            required
                           />
                           <span>-</span>
                           <input
@@ -288,6 +292,7 @@ function JobPost() {
                             value={jobDetails.max_salary}
                             name="max_salary"
                             onChange={handleChange}
+                            required
                           />
                           <input
                             type="radio"
@@ -311,6 +316,7 @@ function JobPost() {
                             value={jobDetails.closing_date}
                             name="closing_date"
                             onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
@@ -406,6 +412,7 @@ function JobPost() {
                             placeholder="ex, Jhon Doe"
                             value={jobDetails.company_code}
                             onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>

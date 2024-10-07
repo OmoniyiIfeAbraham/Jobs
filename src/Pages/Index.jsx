@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./../Components/Header.jsx";
 import Footer from "./../Components/Footer.jsx";
 import Banner from "./../Components/Banner.jsx";
@@ -6,9 +6,10 @@ import Template from "../Components/Template.jsx";
 import JobItem from "../Components/JobItem.jsx";
 
 const Index = () => {
+  const [results, setResults] = useState([]);
   return (
     <Template page={"Home"}>
-      <Banner />
+      <Banner results={results} setResults={setResults} />
       <div className="page">
         <div className="container">
           <div className="section category-items job-category-items  text-center">
@@ -171,7 +172,7 @@ const Index = () => {
               </li>
             </ul>
           </div>
-          <JobItem />
+          <JobItem results={results} setResults={setResults} />
           <div className="section workshop-traning">
             <div className="section-title">
               <h4>Workshop Traning</h4>

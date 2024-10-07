@@ -1,6 +1,42 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { config } from "./GeneralFunction";
+import Notify from "./Notify";
 
-const Banner = () => {
+const Banner = ({ results, setResults }) => {
+  const [query, setQuery] = useState("");
+
+  const Search = (event) => {
+    event.preventDefault();
+
+    const fd = new FormData();
+    fd.append("search", query);
+
+    const url = "http://solidrockschool.com.ng/api/job/search";
+
+    axios.post(url, fd, config).then((response) => {
+      if (response.data.status === 200) {
+        // console.log(response.data);
+        setResults(response.data.data);
+        // Notify({
+        //   title: "Saved",
+        //   message: `${response.data.message}`,
+        //   type: "success",
+        // });
+      } else {
+        Notify({
+          title: "Error",
+          message: `${response.data.message}`,
+          type: "danger",
+        });
+      }
+    });
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setQuery(value);
+  };
   return (
     <div className="banner-job">
       <div className="banner-overlay"></div>
@@ -8,13 +44,16 @@ const Banner = () => {
         <h1 className="title">The Easiest Way to Get Your New Job</h1>
         <h3>We offer 12000 jobs vacation right now</h3>
         <div className="banner-form">
-          <form action="#" className="clearfix">
+          <form action="#" className="clearfix" onSubmit={Search}>
             <input
               type="text"
               className="form-control"
               placeholder="Type your key word"
+              name="query"
+              value={query}
+              onChange={handleChange}
             />
-            <div className="dropdown category-dropdown">
+            {/* <div className="dropdown category-dropdown">
               <a data-toggle="dropdown" href="#">
                 <span className="change-text">Job Location</span>{" "}
                 <i className="fa fa-angle-down"></i>
@@ -30,7 +69,7 @@ const Banner = () => {
                   <a href="#">Location 3</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <button type="submit" className="btn btn-primary" value="Search">
               Search
             </button>
