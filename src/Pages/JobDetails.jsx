@@ -7,19 +7,21 @@ import { config } from "../Components/GeneralFunction.jsx";
 function JobDetails() {
   let param = useParams();
 
-  const [content, setContent] = useState([]);
+  const [job, setJob] = useState();
 
   const FetchData = () => {
-    let url = `http://get_data_url/${param.id}`;
+    let url = `http://solidrockschool.com.ng/api/job/info/${param.slug}`;
 
     axios.get(url, config).then((response) => {
-      setContent(response.data.data);
+      setJob(response.data.data[0]);
     });
   };
 
   useEffect(() => {
-    // FetchData();
+    FetchData();
   }, []);
+
+  console.log(job);
   return (
     <Template page={"Details"}>
       <section className="job-bg page job-details-page">
@@ -27,14 +29,13 @@ function JobDetails() {
           <div className="breadcrumb-section">
             <ol className="breadcrumb">
               <li>
-                <a href="index.html">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="job-list.html">Engineer/Architects</a>
+                <a href="/job-list">{job?.category}</a>
               </li>
-              <li>UI & UX Designer</li>
             </ol>
-            <h2 className="title">Creative & Design</h2>
+            <h2 className="title">{job?.title}</h2>
           </div>
           <div className="banner-form banner-form-full job-list-form">
             <form action="#" className="clearfix">
@@ -105,10 +106,10 @@ function JobDetails() {
                   <span>
                     <span>
                       <a href="#" className="title">
-                        Human Resource Manager
+                        {job?.title}
                       </a>
                     </span>{" "}
-                    @ <a href="#"> Dropbox Inc</a>
+                    @ <a href="#"> {job?.company_name}</a>
                   </span>
                   <div className="ad-meta">
                     <ul>
@@ -118,23 +119,23 @@ function JobDetails() {
                             className="fa fa-map-marker"
                             aria-hidden="true"
                           ></i>
-                          San Francisco, CA, US
+                          {job?.location}
                         </a>
                       </li>
                       <li>
                         <a href="#">
                           <i className="fa fa-clock-o" aria-hidden="true"></i>
-                          Full Time
+                          {job?.employment_type}
                         </a>
                       </li>
                       <li>
-                        <i className="fa fa-money" aria-hidden="true"></i>
-                        $25,000 - $35,000
+                        <i className="fa fa-money" aria-hidden="true"></i>${" "}
+                        {job?.min_salary} - $ {job?.max_salary}
                       </li>
                       <li>
                         <a href="#">
                           <i className="fa fa-tags" aria-hidden="true"></i>
-                          HR/Org. Development
+                          {job?.website}
                         </a>
                       </li>
                       <li>
@@ -142,7 +143,7 @@ function JobDetails() {
                           className="fa fa-hourglass-start"
                           aria-hidden="true"
                         ></i>
-                        Application Deadline : Jan 10, 2017
+                        Application Deadline : {job?.closing_date}
                       </li>
                     </ul>
                   </div>
@@ -159,7 +160,7 @@ function JobDetails() {
                     Bookmark
                   </a>
                 </div>
-                <ul className="share-social">
+                {/* <ul className="share-social">
                   <li>Share this ad</li>
                   <li>
                     <a href="#">
@@ -206,7 +207,7 @@ function JobDetails() {
                       <i className="fa fa-tumblr-square" aria-hidden="true"></i>
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
             <div className="job-details-info">
@@ -216,17 +217,7 @@ function JobDetails() {
                     <div className="description-info">
                       <h1>Description</h1>
                       <p>
-                        <span>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim ad minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat. Duis aute irure dolor in
-                          reprehenderit in voluptate velit esse cillum dolore eu
-                          fugiat nulla pariatur. Excepteur sint occaecat
-                          cupidatat non proident, sunt in culpa qui officia
-                          deserunt mollit anim id est laborum.
-                        </span>
+                        <span>{job?.description}</span>
                       </p>
                       <p>
                         Sed ut perspiciatis unde omnis iste natus error sit
@@ -237,7 +228,7 @@ function JobDetails() {
                         odit aut fugit, sed quia consequuntur magni।
                       </p>
                     </div>
-                    <div className="responsibilities">
+                    {/* <div className="responsibilities">
                       <h1>Key Responsibilities:</h1>
                       <p>
                         -Execute all visual design stages of website design from
@@ -282,7 +273,7 @@ function JobDetails() {
                           without sponsorship
                         </li>
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="col-sm-4">
@@ -293,19 +284,19 @@ function JobDetails() {
                         <span className="icon">
                           <i className="fa fa-bolt" aria-hidden="true"></i>
                         </span>
-                        Posted: 1 day ago
+                        Posted: {job?.created_at}
                       </li>
                       <li>
                         <span className="icon">
                           <i className="fa fa-user-plus" aria-hidden="true"></i>
                         </span>{" "}
-                        Job poster: <a href="#">Lance Ladaga</a>
+                        Job poster: <a href="#"> {job?.created_by}</a>
                       </li>
                       <li>
                         <span className="icon">
                           <i className="fa fa-industry" aria-hidden="true"></i>
                         </span>
-                        Industry: <a href="#">Marketing and Advertising</a>
+                        Industry: <a href="#"> {job?.category}</a>
                       </li>
                       <li>
                         <span className="icon">
@@ -314,13 +305,13 @@ function JobDetails() {
                             aria-hidden="true"
                           ></i>
                         </span>
-                        Experience: <a href="#">Entry level</a>
+                        Experience: <a href="#"> {job?.employment_type}</a>
                       </li>
                       <li>
                         <span className="icon">
                           <i className="fa fa-key" aria-hidden="true"></i>
                         </span>
-                        Job function: Advertising,Design, Art/Creative
+                        Job function: {job?.title}
                       </li>
                     </ul>
                   </div>
@@ -328,14 +319,14 @@ function JobDetails() {
                     <h1>Company Info</h1>
                     <ul>
                       <li>
-                        Compnay Name: <a href="#">Dropbox Inc</a>
+                        Compnay Name: <a href="#"> {job?.company_name}</a>
                       </li>
-                      <li>Address: London, United Kingdom</li>
-                      <li>Compnay SIze: 2k Employee</li>
+                      <li>Address: {job?.address}</li>
+                      {/* <li>Compnay SIze: 2k Employee</li> */}
                       <li>
-                        Industry: <a href="#">Technology</a>
+                        Industry: <a href="#"> {job?.category}</a>
                       </li>
-                      <li>Phone: +1234 567 8910</li>
+                      <li>Phone: {job?.telephone}</li>
                       <li>
                         Email:{" "}
                         <a href="#">
@@ -343,15 +334,15 @@ function JobDetails() {
                             className="__cf_email__"
                             data-cfemail="0960676f66496d7b66796b6671276a6664"
                           >
-                            [email&#160;protected]
+                              {job?.email}
                           </span>
                         </a>
                       </li>
                       <li>
-                        Website: <a href="#">www.dropbox.com</a>
+                        Website: <a href="#">  {job?.website}</a>
                       </li>
                     </ul>
-                    <ul className="share-social">
+                    {/* <ul className="share-social">
                       <li>
                         <a href="#">
                           <i
@@ -384,7 +375,7 @@ function JobDetails() {
                           ></i>
                         </a>
                       </li>
-                    </ul>
+                    </ul> */}
                   </div>
                 </div>
               </div>
