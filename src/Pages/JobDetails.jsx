@@ -28,6 +28,49 @@ function JobDetails() {
 
   console.log(job);
 
+  const Apply = (event) => {
+    event.preventDefault();
+
+    Swal.fire({
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+      imageHeight: 100,
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
+
+    const fd = new FormData();
+    fd.append("job_code", job.code);
+    fd.append("company_code", job.company_code);
+    fd.append("people_code", People_Code);
+
+    let url = "http://solidrockschool.com.ng/api/people/job/apply";
+    axios
+      .post(url, fd, config)
+      .then((response) => {
+        if (response.data.status == 200) {
+          Notify({
+            title: "Application Successfully!",
+            message: `${response.data.message}`,
+            type: "success",
+          });
+          Swal.close();
+          // window.location.href = `job-details/${param.slug}`;
+        } else {
+          Notify({
+            title: "Error",
+            message: `${response.data.message}`,
+            type: "danger",
+          });
+          Swal.close();
+        }
+      })
+      .catch((error) => {
+        Swal.close();
+        alert(error);
+      });
+  };
+
   const Bookmark = (event) => {
     event.preventDefault();
 
@@ -201,10 +244,17 @@ function JobDetails() {
                   className="button"
                   style={{ display: "flex", flexDirection: "rowF" }}
                 >
-                  <a href="#" className="btn btn-primary">
-                    <i className="fa fa-briefcase" aria-hidden="true"></i>Apply
-                    For This Job
-                  </a>
+                  {job && (
+                    <form action="" method="post" onSubmit={Apply}>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bookmark"
+                      >
+                        <i className="fa fa-briefcase" aria-hidden="true"></i>
+                        Apply For This Job
+                      </button>
+                    </form>
+                  )}
                   {job && (
                     <form action="" method="post" onSubmit={Bookmark}>
                       <button
