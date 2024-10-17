@@ -23,17 +23,25 @@ const Banner = ({ results, setResults }) => {
 
     const url = "http://solidrockschool.com.ng/api/job/search";
 
-    axios.post(url, fd, config).then((response) => {
-      if (response.data.status === 200) {
-        setResults(response.data.data);
-      } else {
-        Notify({
-          title: "Error",
-          message: `${response.data.message}`,
-          type: "danger",
-        });
-      }
-    });
+    axios
+      .post(url, fd, config)
+      .then((response) => {
+        if (response.data.status === 200) {
+          setResults(response.data.data);
+          Swal.close();
+        } else {
+          Notify({
+            title: "Error",
+            message: `${response.data.message}`,
+            type: "danger",
+          });
+          Swal.close();
+        }
+      })
+      .catch((error) => {
+        Swal.close();
+        alert(error);
+      });
   };
 
   const handleChange = (event) => {

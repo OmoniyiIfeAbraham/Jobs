@@ -54,22 +54,29 @@ function JobPost() {
     fd.append("title", jobDetails.title);
 
     let url = "http://solidrockschool.com.ng/api/job/add";
-    axios.post(url, fd, config).then((response) => {
-      if (response.data.status == 200) {
-        Notify({
-          title: "Saved",
-          message: response.data.message,
-          type: "success",
-        });
-        window.location.href = "/job-list";
-      } else {
-        Notify({
-          title: "Error",
-          message: response.data.message,
-          type: "danger",
-        });
-      }
-    });
+    axios
+      .post(url, fd, config)
+      .then((response) => {
+        if (response.data.status == 200) {
+          Notify({
+            title: "Saved",
+            message: response.data.message,
+            type: "success",
+          });
+          window.location.href = "/job-list";
+        } else {
+          Notify({
+            title: "Error",
+            message: response.data.message,
+            type: "danger",
+          });
+          Swal.close();
+        }
+      })
+      .catch((error) => {
+        Swal.close();
+        alert(error);
+      });
   };
 
   return (

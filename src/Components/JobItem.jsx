@@ -14,6 +14,8 @@ const JobItem = ({ results, setResults }) => {
     });
   };
 
+  console.log(content);
+
   useEffect(() => {
     FetchData();
   }, []);
@@ -24,14 +26,12 @@ const JobItem = ({ results, setResults }) => {
 
         <ul className="nav nav-tabs" role="tablist">
           <li role="presentation">
-            <a href="#hot-jobs" data-toggle="tab">
-              Hot Jobs
-            </a>
+            <a href="#">Hot Jobs</a>
           </li>
         </ul>
       </div>
       <div className="tab-content">
-        <div role="tabpanel" className="tab-pane fade in" id="hot-jobs">
+        <div role="tabpanel" id="hot-jobs">
           {content &&
             results === null &&
             content.map((list, id) => (

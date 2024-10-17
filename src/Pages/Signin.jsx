@@ -35,25 +35,32 @@ function Signin() {
     fd.append("password", user.password);
 
     let url = "http://solidrockschool.com.ng/api/people/applicant/login";
-    axios.post(url, fd, config).then((response) => {
-      if (response.data.status == 200) {
-        Notify({
-          title: "Saved",
-          message: `${response.data.message}`,
-          type: "success",
-        });
-        cookies.setItem("token", response.data.token);
-        cookies.setItem("code", response.data.code);
-        // navigate("/profile");
-        window.location.href="/profile";
-      } else {
-        Notify({
-          title: "Error",
-          message: `${response.data.message}`,
-          type: "danger",
-        });
-      }
-    });
+    axios
+      .post(url, fd, config)
+      .then((response) => {
+        if (response.data.status == 200) {
+          Notify({
+            title: "Saved",
+            message: `${response.data.message}`,
+            type: "success",
+          });
+          cookies.setItem("token", response.data.token);
+          cookies.setItem("code", response.data.code);
+          // navigate("/profile");
+          window.location.href = "/profile";
+        } else {
+          Notify({
+            title: "Error",
+            message: `${response.data.message}`,
+            type: "danger",
+          });
+          Swal.close();
+        }
+      })
+      .catch((error) => {
+        Swal.close();
+        alert(error);
+      });
   };
   return (
     <Template page={"signin"}>

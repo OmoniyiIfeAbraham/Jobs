@@ -59,21 +59,29 @@ function Signup() {
       fd.append("city", user.city);
 
       let url = "http://solidrockschool.com.ng/api/people/application/create";
-      axios.post(url, fd, config).then((response) => {
-        if (response.data.status == 200) {
-          Notify({
-            title: "Saved",
-            message: `${response.data.message}`,
-            type: "success",
-          });
-        } else {
-          Notify({
-            title: "Error",
-            message: `${response.data.message}`,
-            type: "danger",
-          });
-        }
-      });
+      axios
+        .post(url, fd, config)
+        .then((response) => {
+          if (response.data.status == 200) {
+            Notify({
+              title: "Saved",
+              message: `${response.data.message}`,
+              type: "success",
+            });
+            Swal.close();
+          } else {
+            Notify({
+              title: "Error",
+              message: `${response.data.message}`,
+              type: "danger",
+            });
+            Swal.close();
+          }
+        })
+        .catch((error) => {
+          Swal.close();
+          alert(error);
+        });
     }
   };
 

@@ -6,7 +6,7 @@ import Template from "../Components/Template.jsx";
 import JobItem from "../Components/JobItem.jsx";
 
 const Index = () => {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(null);
   return (
     <Template page={"Home"}>
       <Banner results={results} setResults={setResults} />
