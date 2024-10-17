@@ -13,7 +13,6 @@ function JobDetails() {
   const People_Code = cookies.getItem("code");
 
   const [job, setJob] = useState();
-  const [loading, setLoading] = useState(false);
 
   const FetchData = () => {
     let url = `http://solidrockschool.com.ng/api/job/info/${param.slug}`;
@@ -29,44 +28,46 @@ function JobDetails() {
 
   console.log(job);
 
-  // if (loading) {
-  //   Swal.fire({
-  //     imageUrl:
-  //       "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
-  //     imageHeight: 100,
-  //     showCloseButton: false,
-  //     showConfirmButton: false,
-  //   });
-  // }
-
   const Bookmark = (event) => {
     event.preventDefault();
 
-    setLoading(true);
+    Swal.fire({
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+      imageHeight: 100,
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
 
     const fd = new FormData();
     fd.append("job_code", job.code);
     fd.append("people_code", People_Code);
 
     let url = "http://solidrockschool.com.ng/api/people/job/bookmark";
-    axios.post(url, fd, config).then((response) => {
-      if (response.data.status == 200) {
-        Notify({
-          title: "Saved",
-          message: `${response.data.message}`,
-          type: "success",
-        });
-        setLoading(false);
-        // window.location.href = `job-details/${param.slug}`;
-      } else {
-        Notify({
-          title: "Error",
-          message: `${response.data.message}`,
-          type: "danger",
-        });
-        setLoading(false);
-      }
-    });
+    axios
+      .post(url, fd, config)
+      .then((response) => {
+        if (response.data.status == 200) {
+          Notify({
+            title: "Saved",
+            message: `${response.data.message}`,
+            type: "success",
+          });
+          Swal.close();
+          // window.location.href = `job-details/${param.slug}`;
+        } else {
+          Notify({
+            title: "Error",
+            message: `${response.data.message}`,
+            type: "danger",
+          });
+          Swal.close();
+        }
+      })
+      .catch((error) => {
+        Swal.close();
+        alert(error);
+      });
   };
   return (
     <Template page={"Details"}>
@@ -196,7 +197,10 @@ function JobDetails() {
                 </div>
               </div>
               <div className="social-media">
-                <div className="button" style={{display: 'flex', flexDirection: 'rowF'}}>
+                <div
+                  className="button"
+                  style={{ display: "flex", flexDirection: "rowF" }}
+                >
                   <a href="#" className="btn btn-primary">
                     <i className="fa fa-briefcase" aria-hidden="true"></i>Apply
                     For This Job
