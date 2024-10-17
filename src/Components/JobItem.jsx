@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { config, jobData } from "./GeneralFunction";
+import Swal from "sweetalert2";
 
 const JobItem = ({ results, setResults }) => {
   const [content, setContent] = useState(jobData);

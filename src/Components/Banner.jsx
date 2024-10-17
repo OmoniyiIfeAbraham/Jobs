@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { config } from "./GeneralFunction";
 import Notify from "./Notify";
+import Swal from "sweetalert2";
 
 const Banner = ({ results, setResults }) => {
   const [query, setQuery] = useState("");
@@ -12,17 +13,19 @@ const Banner = ({ results, setResults }) => {
     const fd = new FormData();
     fd.append("search", query);
 
+    Swal.fire({
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif",
+      imageHeight: 100,
+      showCloseButton: false,
+      showConfirmButton: false,
+    });
+
     const url = "http://solidrockschool.com.ng/api/job/search";
 
     axios.post(url, fd, config).then((response) => {
       if (response.data.status === 200) {
-        // console.log(response.data);
         setResults(response.data.data);
-        // Notify({
-        //   title: "Saved",
-        //   message: `${response.data.message}`,
-        //   type: "success",
-        // });
       } else {
         Notify({
           title: "Error",
