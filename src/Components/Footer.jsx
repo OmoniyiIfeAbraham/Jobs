@@ -108,8 +108,8 @@ function Footer() {
         <div className="footer-bottom clearfix text-center">
           <div className="container">
             <p>
-              Copyright &copy; <a href="#">Jobs</a> 2017. Developed by{" "}
-              <a href="http://themeregion.com/">ThemeRegion</a>
+              Copyright &copy; <a href="#">Jobs</a> 2024. Developed by{" "}
+              <a href="#">Ife Abraham</a>
             </p>
           </div>
         </div>
